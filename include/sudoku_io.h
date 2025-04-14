@@ -53,6 +53,7 @@ void printBoard(int** BOARD, const int& r=0, const int& c=0, int k=0, const bool
  * @param BOARD A pointer to the 2D Sudoku board (int**).
  * @param content Reference to a string where the board will be stored.
  */
+
 void boardToString(int** BOARD, string& content);
 
 /**

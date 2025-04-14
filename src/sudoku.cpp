@@ -128,10 +128,7 @@ tuple<int, int, int> findNextCell(int** BOARD) {
             {
                 for (int k=1;k<=9;k++)
                 {
-                    if(isValid(BOARD,r,c,k))
-                    {
-                        currOpt+=1;
-                    }
+                    if(isValid(BOARD,r,c,k)) currOpt++;
                 }
                 if(currOpt==1) return {r,c,1};
                 else if (currOpt<minOptions)
@@ -158,10 +155,10 @@ tuple<int, int, int> findNextCell(int** BOARD) {
 bool solveBoardEfficient(int** BOARD)
 {
     auto [row,col,options] = findNextCell(BOARD);
-    if (row != -1) {
+    if (row == -1) return true;
+    else {
         // cout << "Next cell to fill: (" << row << ", " << col << ") "
         //      << "with " << options << " possible options." << std::endl;
-
         for (int k=1;k<=9;k++)
         {
             if (isValid(BOARD,row,col,k))
@@ -173,12 +170,7 @@ bool solveBoardEfficient(int** BOARD)
         }
         return false;
     } 
-    else {
-        // std::cout << "No empty cells found. The board is complete!" << std::endl;
-        return true;
-    }
-
-
+    
 
     /**
      * @brief Efficiently solves the Sudoku board using backtracking and the MRV heuristic.

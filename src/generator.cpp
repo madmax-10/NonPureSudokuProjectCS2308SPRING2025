@@ -29,6 +29,7 @@
 #include "../include/sudoku_io.h"
 #include <random>
 #include <bitset>
+#include <vector>
 
 using namespace std;
 
@@ -43,6 +44,12 @@ int** getEmptyBoard() {
 // Hint 1:  Implement a function to return shuffled vectors
 // Function to return a randomly shuffled vector from 1 to 9
 std::vector<int> getShuffledVector() {
+
+    vector <int> numbers = {1,2,3,4,5,6,7,8,9};
+    random_device rd;
+    mt19937 gen(rd());
+    shuffle(numbers.begin(), numbers.end(), gen);
+    return numbers;
     // TODO: Implement shuffling logic here
     /**
      * TODO:
@@ -114,6 +121,9 @@ std::vector<int> getShuffledVector() {
             */
 
 void fillBoardWithIndependentBox(int** BOARD) {
+
+
+    
     // TODO: Implement logic to fill diagonal 3x3 boxes
     /**
      * TODO:
@@ -222,7 +232,7 @@ void deleteRandomItems(int** BOARD, const int& n) {
 
 int** generateBoard(const int& empty_boxes){
 
-    
+
 
 
 
