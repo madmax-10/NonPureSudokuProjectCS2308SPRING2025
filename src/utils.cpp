@@ -7,6 +7,16 @@
 using namespace std;
 
 void deallocateBoard(int** BOARD, const int& rows) {
+
+    if (BOARD!=nullptr)
+    {
+        for (int i=0;i<rows;i++)
+        {
+            delete[] BOARD[i];
+        }
+
+    }
+    BOARD=nullptr;
     // TODO: Implement memory deallocation for the 2D board
 
     /**

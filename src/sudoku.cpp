@@ -119,10 +119,28 @@ tuple<int, int, int> findNextCell(int** BOARD) {
      * @endcode
      */
     int minOptions = INT_MAX;
-    int bestRow = -1, bestCol = -1;
+    int bestRow = -1, bestCol = -1, currOpt=0;
 
     for (int r = 0; r < 9; r++) {
         for (int c = 0; c < 9; c++) {
+
+            if (BOARD[r][c]==0)
+            {
+                for (int k=1;k<=9;k++)
+                {
+                    if(isValid(BOARD,r,c,k))
+                    {
+                        currOpt+=1;
+                    }
+                }
+                if(currOpt==1) return {r,c,1};
+                else if (currOpt<minOptions)
+                {
+                    bestRow=r;
+                    bestCol=c;
+                    minOptions=currOpt;
+                }
+            }
             // TODO: Complete the logic inside this nested loop
             /**
              * - Check if BOARD[r][c] is empty (value == 0).
@@ -139,6 +157,29 @@ tuple<int, int, int> findNextCell(int** BOARD) {
 
 bool solveBoardEfficient(int** BOARD)
 {
+    auto [row,col,options] = findNextCell(BOARD);
+    if (row != -1) {
+        // cout << "Next cell to fill: (" << row << ", " << col << ") "
+        //      << "with " << options << " possible options." << std::endl;
+
+        for (int k=1;k<=9;k++)
+        {
+            if (isValid(BOARD,row,col,k))
+            {
+                BOARD[row][col]=k;
+                if (solveBoardEfficient(BOARD)) return true;
+                else BOARD[row][col]=0;
+            }
+        }
+        return false;
+    } 
+    else {
+        // std::cout << "No empty cells found. The board is complete!" << std::endl;
+        return true;
+    }
+
+
+
     /**
      * @brief Efficiently solves the Sudoku board using backtracking and the MRV heuristic.
      *
@@ -162,6 +203,7 @@ bool solveBoardEfficient(int** BOARD)
 
 
 bool solve(int** board, const bool& efficient) {
+    if (efficient==true) return solveBoardEfficient(board);
     // TODO: Implement logic to select the appropriate solver based on the 'efficient' flag
 
     /**
