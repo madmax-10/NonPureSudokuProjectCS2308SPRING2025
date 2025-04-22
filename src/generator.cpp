@@ -22,14 +22,12 @@
  * @date
  * February 7, 2025
  */
-
-
+#include<bits/stdc++.h>
 #include "../include/generator.h"
 #include "../include/sudoku.h"
 #include "../include/sudoku_io.h"
 #include <random>
 #include <bitset>
-#include <vector>
 
 using namespace std;
 
@@ -43,13 +41,7 @@ int** getEmptyBoard() {
 
 // Hint 1:  Implement a function to return shuffled vectors
 // Function to return a randomly shuffled vector from 1 to 9
-std::vector<int> getShuffledVector() {
-
-    vector <int> numbers = {1,2,3,4,5,6,7,8,9};
-    random_device rd;
-    mt19937 gen(rd());
-    shuffle(numbers.begin(), numbers.end(), gen);
-    return numbers;
+ vector <int> getShuffledVector() {
     // TODO: Implement shuffling logic here
     /**
      * TODO:
@@ -63,7 +55,18 @@ std::vector<int> getShuffledVector() {
      */
     // Dummy implementation:
     // Temporary static return for testing
-    return {3, 1, 4, 2, 7, 6, 5, 9, 8};
+
+    vector <int> v;
+
+    for(int i = 1; i <= 9; i++) v.push_back(i);
+
+    random_device rd;
+    mt19937 g(rd());
+
+    shuffle(v.begin(), v.end(), g);
+
+
+    return v;
 }
 
 
@@ -119,11 +122,19 @@ std::vector<int> getShuffledVector() {
                 | . . . | . . . | 3 4 9 |
                 +-------+-------+-------+
             */
+void fillDiagonalMatrix(int** BOARD , int rows, int cols){
+  vector <int> v= getShuffledVector();
+  for(int i = 0; i < 3; i++){
+    for(int j = 0; j < 3; j++){
+      BOARD[i+rows] [j+cols] = v.back();
+      v.pop_back();
+
+    }
+
+  }
+  }
 
 void fillBoardWithIndependentBox(int** BOARD) {
-
-
-    
     // TODO: Implement logic to fill diagonal 3x3 boxes
     /**
      * TODO:
@@ -135,28 +146,13 @@ void fillBoardWithIndependentBox(int** BOARD) {
      * - Top-Left, Center, and Bottom-Right boxes should be filled.
      * - Remaining cells should remain empty.
      */
+    //It creates 3 diagonal (0,0) (3,3) (6,6) and fill all of them will vector,now we have to fill all the places.
+	fillDiagonalMatrix(BOARD, 0, 0);
+    fillDiagonalMatrix(BOARD, 3, 3);
+    fillDiagonalMatrix(BOARD, 6, 6);
 
-    // Dummy implementation:
-    // Temporary static fill based on the provided example
-    int staticBoard[9][9] = {
-        {1, 5, 6, 0, 0, 0, 0, 0, 0},
-        {2, 4, 7, 0, 0, 0, 0, 0, 0},
-        {8, 3, 9, 0, 0, 0, 0, 0, 0},
-        {0, 0, 0, 1, 7, 4, 0, 0, 0},
-        {0, 0, 0, 6, 2, 8, 0, 0, 0},
-        {0, 0, 0, 5, 9, 3, 0, 0, 0},
-        {0, 0, 0, 0, 0, 0, 1, 6, 7},
-        {0, 0, 0, 0, 0, 0, 2, 5, 8},
-        {0, 0, 0, 0, 0, 0, 3, 4, 9}
-    };
-    // Dummy implementation:
-    // Copy static board to the provided BOARD
-    for (int i = 0; i < 9; i++) {
-        for (int j = 0; j < 9; j++) {
-            BOARD[i][j] = staticBoard[i][j];
-        }
-    }
 }
+
 
 // Hint 3:  SolveBoard by using function provided in sudoku.h
             /* Example Solve Board
@@ -202,6 +198,11 @@ void fillBoardWithIndependentBox(int** BOARD) {
 
 // Function to randomly delete 'n' items from a 9x9 Sudoku board using bitsets
 void deleteRandomItems(int** BOARD, const int& n) {
+    if (BOARD == nullptr || n < 1 || n > 81) return;
+
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_int_distribution<> dist(0, 8);
     // TODO: Implement logic to delete 'n' random cells from the board
     /**
      * TODO:
@@ -219,11 +220,15 @@ void deleteRandomItems(int** BOARD, const int& n) {
      */
 
     // Dummy implementation: Set the first 3 rows to 0
-    for (int r = 0; r < 3; r++) {
-        for (int c = 0; c < 9; c++) {
-            BOARD[r][c] = 0;
+    int remaining = n;
+    while(remaining > 0) {
+        int row= dist(gen);
+        int col= dist(gen);
+        if(BOARD[row][col]!=0){
+            BOARD[row][col] = 0;
+            remaining--;
         }
-    }
+}
 }
 
 
@@ -231,11 +236,6 @@ void deleteRandomItems(int** BOARD, const int& n) {
 // Note you need add these function prototypes in generator.h files as well
 
 int** generateBoard(const int& empty_boxes){
-
-
-
-
-
     /**
      * @brief Generates a solvable Sudoku board with a specified number of empty cells.
      *
@@ -255,16 +255,11 @@ int** generateBoard(const int& empty_boxes){
      */
 
     // Dummy implementation: Returning static sudoku board
-    int** BOARD = new int*[9];
-    BOARD[0] = new int[9] {0, 0, 4, 0, 5, 0, 0, 0, 0};
-    BOARD[1] = new int[9] {9, 0, 0, 7, 3, 4, 6, 0, 0};
-    BOARD[2] = new int[9] {0, 0, 3, 0, 2, 1, 0, 4, 9};
-    BOARD[3] = new int[9] {0, 3, 5, 0, 9, 0, 4, 8, 0};
-    BOARD[4] = new int[9] {0, 9, 0, 0, 0, 0, 0, 3, 0};
-    BOARD[5] = new int[9] {0, 7, 6, 0, 1, 0, 9, 2, 0};
-    BOARD[6] = new int[9] {3, 1, 0, 9, 7, 0, 2, 0, 0};
-    BOARD[7] = new int[9] {0, 0, 9, 1, 8, 2, 0, 0, 3};
-    BOARD[8] = new int[9] {0, 0, 0, 0, 6, 0, 1, 0, 0};
+    int** BOARD = getEmptyBoard();
+    fillBoardWithIndependentBox(BOARD);
+    solveBoard(BOARD);
+    deleteRandomItems(BOARD, empty_boxes);
+
 
     return BOARD;
 }

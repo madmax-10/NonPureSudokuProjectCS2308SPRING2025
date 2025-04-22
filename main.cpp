@@ -35,23 +35,27 @@ int COMPLEXITY_EMPTY_BOXES = 45;
 int main() {
     // You can modify this main function to access all other function implemented
     //
-    cout << "Running in DEBUG MODE...\n";
-
-    // Example: Generate a single puzzle and print it
-    int** board = generateBoard(COMPLEXITY_EMPTY_BOXES);  // Generate with 40 empty cells
-    cout << "Generated Sudoku Puzzle:\n";
-    printBoard(board);  // Assuming printBoard is defined in sudoku_io.h
-
-    // Test solving the puzzle
-    if (solve(board)) {
-        cout << "Solved Puzzle:\n";
-        printBoard(board);
-    } else {
-        cout << "Failed to solve the puzzle.\n";
+    // cout << "Running in DEBUG MODE...\n";
+    //
+    // // Example: Generate a single puzzle and print it
+    // int** board = generateBoard(COMPLEXITY_EMPTY_BOXES);  // Generate with 40 empty cells
+    // cout << ";Generated Sudoku Puzzle:\n";
+    // printBoard(board);  // Assuming printBoard is defined in sudoku_io.h
+    //
+    // // Test solving the puzzle
+    // if (solve(board)) {
+    //     cout << "Solved Puzzle:\n";
+    //     printBoard(board);
+    // } else {
+    //     cout << "Failed to solve the puzzle.\n";
+    // }
+    //
+    // // Clean up memory
+    // deallocateBoard(board);
+    vector <int> news= getShuffledVector();
+    for (auto it  : news) {
+        cout<<it<<" "<<endl;
     }
-
-    // Clean up memory
-    deallocateBoard(board);
 
     return 0;
 }
