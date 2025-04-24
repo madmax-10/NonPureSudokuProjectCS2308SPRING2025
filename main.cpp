@@ -52,11 +52,6 @@ int main() {
     //
     // // Clean up memory
     // deallocateBoard(board);
-    vector <int> news= getShuffledVector();
-    for (auto it  : news) {
-        cout<<it<<" "<<endl;
-    }
-
     return 0;
 }
 #else

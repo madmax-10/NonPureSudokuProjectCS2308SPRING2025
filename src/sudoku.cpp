@@ -156,20 +156,18 @@ bool solveBoardEfficient(int** BOARD)
 {
     auto [row,col,options] = findNextCell(BOARD);
     if (row == -1) return true;
-    else {
         // cout << "Next cell to fill: (" << row << ", " << col << ") "
         //      << "with " << options << " possible options." << std::endl;
-        for (int k=1;k<=9;k++)
+    for (int k=1;k<=9;k++)
+    {
+        if (isValid(BOARD,row,col,k))
         {
-            if (isValid(BOARD,row,col,k))
-            {
-                BOARD[row][col]=k;
-                if (solveBoardEfficient(BOARD)) return true;
-                else BOARD[row][col]=0;
-            }
+            BOARD[row][col]=k;
+            if (solveBoardEfficient(BOARD)) return true;
+            else BOARD[row][col]=0;
         }
-        return false;
-    } 
+    }
+    return false;
     
 
     /**
@@ -190,7 +188,6 @@ bool solveBoardEfficient(int** BOARD)
      * @param BOARD A 9x9 Sudoku board to be solved.
      * @return true if the board is successfully solved, false otherwise.
      */
-    return false; //temporary
 }
 
 

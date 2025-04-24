@@ -22,7 +22,7 @@
  * @date
  * February 7, 2025
  */
-#include<bits/stdc++.h>
+#include <vector>
 #include "../include/generator.h"
 #include "../include/sudoku.h"
 #include "../include/sudoku_io.h"
@@ -122,17 +122,6 @@ int** getEmptyBoard() {
                 | . . . | . . . | 3 4 9 |
                 +-------+-------+-------+
             */
-void fillDiagonalMatrix(int** BOARD , int rows, int cols){
-  vector <int> v= getShuffledVector();
-  for(int i = 0; i < 3; i++){
-    for(int j = 0; j < 3; j++){
-      BOARD[i+rows] [j+cols] = v.back();
-      v.pop_back();
-
-    }
-
-  }
-  }
 
 void fillBoardWithIndependentBox(int** BOARD) {
     // TODO: Implement logic to fill diagonal 3x3 boxes
@@ -147,10 +136,17 @@ void fillBoardWithIndependentBox(int** BOARD) {
      * - Remaining cells should remain empty.
      */
     //It creates 3 diagonal (0,0) (3,3) (6,6) and fill all of them will vector,now we have to fill all the places.
-	fillDiagonalMatrix(BOARD, 0, 0);
-    fillDiagonalMatrix(BOARD, 3, 3);
-    fillDiagonalMatrix(BOARD, 6, 6);
+	for (int k=0;k<=6;k+=3)
+    {
+        vector <int> v= getShuffledVector();
+        for(int i = 0; i < 3; i++){
+            for(int j = 0; j < 3; j++){
+                BOARD[i+k] [j+k] = v.back();
+                v.pop_back();
+            }
 
+        }
+    }
 }
 
 

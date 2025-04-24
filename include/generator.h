@@ -65,7 +65,7 @@ std::vector<int> getShuffledVector();
   *
   * Targets the independent boxes at positions (0,0), (3,3), and (6,6) on the 9×9 board.
   * For each diagonal box, it generates a shuffled sequence of 1–9 and fills the 3×3 cell block
-  * using the helper fillDiagonalMatrix. All other cells in the board remain unchanged.
+  * All other cells in the board remain unchanged.
   *
   * @param BOARD A pointer to the 9×9 Sudoku board (int**), already allocated and initialized.
   *
