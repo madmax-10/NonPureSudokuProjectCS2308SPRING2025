@@ -25,6 +25,13 @@ using namespace std;
 
 /**
   * TODO: Provide appropriate Documentation, see other examples provided within the projects
+  * @brief Deallocates memory for a dynamically allocated 2D Sudoku board.
+  *
+  * Safely frees each row array and then the array of row pointers.
+  * After deletion, sets the BOARD pointer to nullptr to prevent dangling references.
+  *
+  * @param BOARD Pointer to the dynamically allocated 2D board (int**). Must be non-null.
+  * @param rows  The number of rows in the board (typically 9 for a standard sudoku).
   */
 void deallocateBoard(int** BOARD, const int& rows = 9);
 
