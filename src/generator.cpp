@@ -23,6 +23,7 @@
  * February 7, 2025
  */
 #include <vector>
+#include <algorithm>
 #include "../include/generator.h"
 #include "../include/sudoku.h"
 #include "../include/sudoku_io.h"
