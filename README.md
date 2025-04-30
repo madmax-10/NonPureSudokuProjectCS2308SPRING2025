@@ -1,10 +1,18 @@
-Overview
+# CS2 Semester Project: Sudoku Puzzle Generator and Solver
 
-As part of our CS 2 semester project, we implemented a Sudoku puzzle generator/solver. The main idea about the project was  to generate valid Sudoku problem grids, erasing numbers selectively to create solvable puzzles of varied difficulty, and to solve the puzzles with two different algorithms — a simple backtracking solver and an improved solver utilizing the Minimum Remaining Value (MRV) heuristic to always choose the empty cell with the lowest number of possible valid numbers, in an effort to lower the number of incorrect guesses and solve faster. Both algorithms, simple backtracking and MRV solver were used to solve sudoku puzzles of different difficulty and were compared with each other by computing the average time elapsed for 1 solution. To our surprise, the time elapsed was more for the efficient solver than the simple solver and the reason behind it is revealed later in the report. The entire project also features two different operational modes: DEBUG and non-DEBUG, each designed for specific testing and execution environments. One of the major challenges faced during development was understanding and implementing the efficient solver algorithm. Even though we implemented the efficient solver by simply following the given To Dos, we had hard time understanding the actual logic behind this algorithm but finally we have understood after proper research.
-Even though the overall project structure was given to us, we had to complete the basic logic and ensure everything integrated with each other as required. This project helped us practice key programming concepts like recursion, backtracking, modular design, and optimization. It also gave us valuable experience in applying the foundational topics we learned during the semester to a larger real-world coding project. Additionally, we learned how to use CLion and its different features, specially the DEBUG mode- how we can check the flow or correctness of the program/algorithm without compiling the whole program, which we believe is going to be very useful in the future. The collaborative aspect of the project enhanced our ability to work in a team  with each of us being tasked with various modules like puzzle generation, input/output, and solver logic. Overall, this project was a valuable learning experience that helped us strengthen our understanding of key C++ concepts like recursion, memory management, and file handling, while also showing us how to apply coding skills to real-world problem solving.
+## Overview
 
-Flowchart for Sudoku Solver Execution (Non-DEBUG Mode):
+As part of our CS 2 semester project, we implemented a Sudoku puzzle generator/solver. The main idea about the project was to generate valid Sudoku problem grids, erasing numbers selectively to create solvable puzzles of varied difficulty, and to solve the puzzles with two different algorithms — a simple backtracking solver and an improved solver utilizing the Minimum Remaining Value (MRV) heuristic to always choose the empty cell with the lowest number of possible valid numbers, in an effort to lower the number of incorrect guesses and solve faster. Both algorithms, simple backtracking and MRV solver were used to solve sudoku puzzles of different difficulty and were compared with each other by computing the average time elapsed for 1 solution. To our surprise, the time elapsed was more for the efficient solver than the simple solver and the reason behind it is revealed later in the report. The entire project also features two different operational modes: DEBUG and non-DEBUG, each designed for specific testing and execution environments.
 
+One of the major challenges faced during development was understanding and implementing the efficient solver algorithm. Even though we implemented the efficient solver by simply following the given To Dos, we had hard time understanding the actual logic behind this algorithm but finally we have understood after proper research.
+
+Even though the overall project structure was given to us, we had to complete the basic logic and ensure everything integrated with each other as required. This project helped us practice key programming concepts like recursion, backtracking, modular design, and optimization. It also gave us valuable experience in applying the foundational topics we learned during the semester to a larger real-world coding project. Additionally, we learned how to use CLion and its different features, specially the DEBUG mode- how we can check the flow or correctness of the program/algorithm without compiling the whole program, which we believe is going to be very useful in the future.
+
+The collaborative aspect of the project enhanced our ability to work in a team with each of us being tasked with various modules like puzzle generation, input/output, and solver logic. Overall, this project was a valuable learning experience that helped us strengthen our understanding of key C++ concepts like recursion, memory management, and file handling, while also showing us how to apply coding skills to real-world problem solving.
+
+## Flowchart for Sudoku Solver Execution (Non-DEBUG Mode)
+
+```text
 main()
 │
 ├── initDataFolder()
@@ -183,21 +191,19 @@ main()
 │   └── print average timings & success counts
 │
 └── return 0
+```
 
+## Contribution by Group Members
 
-Contribution by Group Members:
-
-Yugesh focused mainly on working in .cpp files (except for generator.cpp), solving logic for efficient solver at initial phase. He also developed the flowchart and helped write the answers for the report.
-
-Ritiz worked on implementing the board generation functions (generator.cpp) and helped with testing the generated puzzles for correctness.
-
-Aashish was responsible for organising the project work, guiding task distribution, and preparing the project report. He also contributed by working on solver testing and performance comparison using both the basic and efficient solving methods.
-
-Abhinav debugged the whole program after the .cpp files were complete, handled all errors and made sure there were none. He also worked on all the .h header files.
+- **Yugesh** focused mainly on working in `.cpp` files (except for `generator.cpp`), solving logic for efficient solver at initial phase. He also developed the flowchart and helped write the answers for the report.
+- **Ritiz** worked on implementing the board generation functions (`generator.cpp`) and helped with testing the generated puzzles for correctness.
+- **Aashish** was responsible for organising the project work, guiding task distribution, and preparing the project report. He also contributed by working on solver testing and performance comparison using both the basic and efficient solving methods.
+- **Abhinav** debugged the whole program after the `.cpp` files were complete, handled all errors and made sure there were none. He also worked on all the `.h` header files.
 
 All four of us worked together to complete this project. We shared ideas, discussed our individual parts, and helped review and organize the report to make sure it clearly reflected our work. Everyone was involved in each other’s tasks and contributed their thought process even though the tasks were divided.
 
-Closing Thoughts:
+## Closing Thoughts
 
 The project experience is really going to be one of the memorable ones. Even though we participated in it for a short time, we learned several things from technical aspects like dynamic memory allocation, recursion, and backtracking to social aspects like teamwork. It helped us understand the importance of time management and working in a team. The project got little intimidation at times, but this was a good learning experience and really tested our skills. It also helped us understand the topics we need to work on if we want to successfully carry out larger projects in the future. The project as a whole provides good practice to implement the topics we learned in our CS2 class. 
-Finally, this project has helped to build a team, and we plan to work on more projects together in the future. We would like to thank Prof. Dr. Keshav Bhandari and TA Syed Tousiful Haque for this engaging opportunity to learn and grow in a team. 
+
+Finally, this project has helped to build a team, and we plan to work on more projects together in the future. We would like to thank **Prof. Dr. Keshav Bhandari** and **TA Syed Tousiful Haque** for this engaging opportunity to learn and grow in a team.
