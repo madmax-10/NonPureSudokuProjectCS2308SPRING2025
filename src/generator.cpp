@@ -224,7 +224,7 @@ void deleteRandomItems(int** BOARD, const int& n) {
             BOARD[row][col] = 0;
             remaining--;
         }
-}
+    }
 }
 
 
