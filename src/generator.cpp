@@ -1,7 +1,3 @@
-//
-// Created by Keshav Bhandari on 2/19/25.
-//
-
 /**
  * @file generator.cpp
  * @brief Implementation of functions to generate random solvable Sudoku boards.
@@ -15,9 +11,6 @@
  * - Replace the dummy code section with appropriate logic
  *
  * You should provide detailed function descriptions in the corresponding header file.
- *
- * @author
- * Keshav Bhandari
  *
  * @date
  * February 7, 2025
@@ -43,17 +36,6 @@ int** getEmptyBoard() {
 // Hint 1:  Implement a function to return shuffled vectors
 // Function to return a randomly shuffled vector from 1 to 9
  vector <int> getShuffledVector() {
-    // TODO: Implement shuffling logic here
-    /**
-     * TODO:
-     * - Create a vector with numbers 1 to 9.
-     * - Apply a shuffling algorithm to randomize the order.
-     * - Return the shuffled vector.
-     *
-     * Example Output: {3, 1, 4, 2, 7, 6, 5, 9, 8}
-     *
-     * @return std::vector<int> Shuffled numbers from 1 to 9.
-     */
     // Dummy implementation:
     // Temporary static return for testing
 
@@ -125,17 +107,6 @@ int** getEmptyBoard() {
             */
 
 void fillBoardWithIndependentBox(int** BOARD) {
-    // TODO: Implement logic to fill diagonal 3x3 boxes
-    /**
-     * TODO:
-     * - Iterate over the three diagonal 3x3 boxes.
-     * - Fill each box with unique numbers from 1 to 9.
-     * - Use a shuffled vector for randomization.
-     *
-     * Example Pattern:
-     * - Top-Left, Center, and Bottom-Right boxes should be filled.
-     * - Remaining cells should remain empty.
-     */
     //It creates 3 diagonal (0,0) (3,3) (6,6) and fill all of them will vector,now we have to fill all the places.
 	for (int k=0;k<=6;k+=3)
     {
@@ -200,22 +171,6 @@ void deleteRandomItems(int** BOARD, const int& n) {
     std::random_device rd;
     std::mt19937 gen(rd());
     std::uniform_int_distribution<> dist(0, 8);
-    // TODO: Implement logic to delete 'n' random cells from the board
-    /**
-     * TODO:
-     * - Validate inputs (e.g., non-null board, valid 'n' between 1 and 81).
-     * - Randomly select 'n' unique cells from the board.
-     * - Replace selected cells with 0.
-     * - Ensure cells aren't deleted more than once.
-     *
-     * Example Behavior:
-     * - For n = 5, randomly select 5 filled cells and set them to 0.
-     * - Ensure the board remains solvable after deletion (optional enhancement).
-     *
-     * @param BOARD A 9x9 Sudoku board.
-     * @param n The number of cells to delete (should be between 1 and 81).
-     */
-
     // Dummy implementation: Set the first 3 rows to 0
     int remaining = n;
     while(remaining > 0) {
@@ -235,17 +190,6 @@ void deleteRandomItems(int** BOARD, const int& n) {
 int** generateBoard(const int& empty_boxes){
     /**
      * @brief Generates a solvable Sudoku board with a specified number of empty cells.
-     *
-     * TODO:
-     * - Implement helper functions in the correct order to:
-     *   1. Initialize an empty board.
-     *   2. Fill the diagonal 3x3 boxes.
-     *   3. Solve the board to complete it.
-     *   4. Randomly delete cells to create a playable puzzle.
-     *
-     * Hints:
-     * - Use `getEmptyBoard()`, `fillBoardWithIndependentBox()`, `solve()`, and `deleteRandomItems()`.
-     * - Ensure the board remains solvable after deleting cells.
      *
      * @param empty_boxes The number of cells to be emptied in the generated puzzle.
      * @return int** A dynamically allocated 9x9 Sudoku board with 'empty_boxes' empty cells.

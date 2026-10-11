@@ -11,9 +11,6 @@
  *
  * Detailed function descriptions and parameters are provided below.
  *
- * @author
- * Keshav Bhandari
- *
  * @date
  * February 7, 2025
  */
@@ -27,8 +24,6 @@
 
 
 /**
-  * TODO: Provide appropriate Documentation, see other examples provided within the projects
-  *
   * @brief Creates and returns a new empty 9×9 Sudoku board.
   *
   * Dynamically allocates a 9×9 grid of integers on the heap and
@@ -45,7 +40,6 @@ int** getEmptyBoard();
 
 
 /**
-  * TODO: Provide appropriate Documentation, see other examples provided within the projects
   * @brief Generates a randomized sequence of the digits 1 through 9.
   *
   * Constructs a std::vector containing the values 1 to 9 in ascending order,
@@ -60,7 +54,6 @@ std::vector<int> getShuffledVector();
 
 
 /**
-  * TODO: Provide appropriate Documentation, see other examples provided within the projects
   *@brief Populates the three diagonal 3×3 subgrids of the Sudoku board with random numbers.
   *
   * Targets the independent boxes at positions (0,0), (3,3), and (6,6) on the 9×9 board.
@@ -74,8 +67,6 @@ void fillBoardWithIndependentBox(int** BOARD);
 
 
 /**
-  * TODO: Provide appropriate Documentation, see other examples provided within the projects
-  *
   *@brief Removes a specified number of entries from the Sudoku board at random.
   *
   * Validates the board pointer and the requested count, then selects `n` unique

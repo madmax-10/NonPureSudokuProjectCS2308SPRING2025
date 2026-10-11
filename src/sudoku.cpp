@@ -6,9 +6,6 @@
  * a backtracking algorithm. Detailed function descriptions are provided in
  * the corresponding header file.
  *
- * @author
- * Keshav Bhandari
- *
  * @date
  * February 7, 2025
 */
@@ -87,13 +84,6 @@ tuple<int, int, int> findNextCell(int** BOARD) {
      * The MRV heuristic selects the empty cell with the fewest valid number options left,
      * which helps in optimizing the backtracking process by reducing the branching factor.
      *
-     * TODO:
-     * - Complete the nested for-loop to:
-     *   1. Iterate over the Sudoku board.
-     *   2. For each empty cell (value == 0), count the number of valid options (1-9) using `isValid()`.
-     *   3. Track the cell with the fewest valid options.
-     *   4. Return the position (row, col) and number of options for that cell.
-     *
      * Early Exit:
      * - If a cell with only one valid option is found, return it immediately for efficiency.
      *
@@ -138,14 +128,6 @@ tuple<int, int, int> findNextCell(int** BOARD) {
                     minOptions=currOpt;
                 }
             }
-            // TODO: Complete the logic inside this nested loop
-            /**
-             * - Check if BOARD[r][c] is empty (value == 0).
-             * - If empty, iterate over numbers 1 to 9.
-             * - Use isValid(BOARD, r, c, k) to count valid options.
-             * - Track the cell with the minimum number of options.
-             * - Implement early exit if a cell with only one option is found.
-             */
         }
     }
     return {bestRow, bestCol, minOptions};
@@ -176,15 +158,6 @@ bool solveBoardEfficient(int** BOARD)
      * This function uses a recursive backtracking approach combined with the Minimum Remaining Value (MRV)
      * heuristic to optimize the solving process by always selecting the cell with the fewest valid options.
      *
-     * TODO:
-     * - Implement the backtracking logic using the following steps:
-     *   1. Use `findNextCell(BOARD)` to select the next cell with the fewest valid options.
-     *   2. If no empty cells are left, the board is solved.
-     *   3. Try placing numbers 1 to 9 in the selected cell using `isValid()`.
-     *   4. Recursively call `solveBoardEfficient()` after placing a valid number.
-     *   5. If the recursive call fails, backtrack by resetting the cell to 0.
-     *   6. If no valid number fits, return false to trigger further backtracking.
-     *
      * @param BOARD A 9x9 Sudoku board to be solved.
      * @return true if the board is successfully solved, false otherwise.
      */
@@ -193,12 +166,5 @@ bool solveBoardEfficient(int** BOARD)
 
 bool solve(int** board, const bool& efficient) {
     if (efficient==true) return solveBoardEfficient(board);
-    // TODO: Implement logic to select the appropriate solver based on the 'efficient' flag
-
-    /**
-     * - If efficient == true, return solveBoardEfficient(board).
-     * - Else, return solveBoard(board, 0, 0).
-     */
-
     return solveBoard(board, 0, 0); // Temporary: Always calls basic solver
 }

@@ -13,9 +13,6 @@
  * The functions work with a dynamically allocated 9x9 Sudoku board
  * represented as `int**`, where empty cells are denoted by 0.
  *
- * @author
- * Keshav Bhandari
- *
  * @date
  * February 7, 2025
  */

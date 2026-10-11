@@ -10,9 +10,6 @@
  * These utilities are designed to support file I/O operations, board memory management,
  * and folder structure initialization for Sudoku puzzle generation and solving projects.
  *
- * @author
- * Keshav Bhandari
- *
  * @date
  * February 8, 2025
  */
@@ -24,7 +21,6 @@
 using namespace std;
 
 /**
-  * TODO: Provide appropriate Documentation, see other examples provided within the projects
   * @brief Deallocates memory for a dynamically allocated 2D Sudoku board.
   *
   * Safely frees each row array and then the array of row pointers.

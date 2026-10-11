@@ -1,6 +1,3 @@
-//
-// Created by Keshav Bhandari on 2/8/24.
-//
 #include <iostream>
 #include <string>
 #include <filesystem>
@@ -17,14 +14,6 @@ void deallocateBoard(int** BOARD, const int& rows) {
 
     }
     BOARD=nullptr;
-    // TODO: Implement memory deallocation for the 2D board
-
-    /**
-     * - Check if BOARD is nullptr.
-     * - Iterate through each row and deallocate using delete[].
-     * - Deallocate the array of row pointers using delete[].
-     * - Set BOARD to nullptr to avoid dangling pointers.
-     */
 }
 
 void createFolder(const std::string& folderPath) {

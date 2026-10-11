@@ -11,9 +11,6 @@
  * All functions operate on dynamically allocated 9x9 Sudoku boards
  * represented as `int**`, where empty cells are denoted by 0.
  *
- * @author
- * Keshav Bhandari
- *
  * @date
  * February 7, 2025
  */
@@ -24,7 +21,6 @@
 #include <iostream>
 
 /**
-  * TODO: Provide appropriate Documentation, see other examples provided within the projects
   * @brief Determines if placing a number in a specific cell respects Sudoku rules.
   *
   * Checks that the candidate number `k` does not already appear in the same row `r`,
@@ -41,8 +37,6 @@ bool isValid(int** BOARD, const int& r, const int& c, const int& k);
 
 
 /**
-  * TODO: Provide appropriate Documentation, see other examples provided within the projects
-  *
   * @brief Attempts to solve the Sudoku board using recursive backtracking.
   *
   * Recursively fills empty cells (denoted by 0) starting at position (r, c).
@@ -62,8 +56,6 @@ bool solveBoard(int** BOARD, const int& r=0, const int& c=0);
 
 
 /**
-  * TODO: Provide appropriate Documentation, see other examples provided within the projects
-  *
   * @brief Finds the next empty cell that’s hardest to fill using the MRV heuristic.
   *
   * Scans all empty cells (value 0) on the 9×9 board, counts how many numbers (1–9)
@@ -81,7 +73,6 @@ std::tuple<int, int, int> findNextCell(int** BOARD);
 
 
 /**
-  * TODO: Provide appropriate Documentation, see other examples provided within the projects
   *  @brief Solves the Sudoku board using recursive backtracking with the MRV heuristic.
   *
   * Uses `findNextCell()` to pick the empty cell with the fewest legal options (Minimum Remaining Value),
@@ -94,7 +85,6 @@ std::tuple<int, int, int> findNextCell(int** BOARD);
 bool solveBoardEfficient(int** BOARD);
 
 /**
-  * TODO: Provide appropriate Documentation, see other examples provided within the projects
   * @brief Chooses and runs the Sudoku solver based on the efficiency flag.
   *
   * If `efficient` is true, uses the MRV‐based backtracking solver (`solveBoardEfficient`),
